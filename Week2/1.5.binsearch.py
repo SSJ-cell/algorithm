@@ -3,18 +3,15 @@
 from typing import List
 
 def binsearch(n: int, S: List[int], x: int) -> int:
-    low, high = 0, n - 1
-    location = -1
+    low = 0
+    high = n-1
 
-    # Complete the code here
-    while low <= high :
-        mid = (high + low)//2
+    while low < high :
+        mid = (low + high) // 2
         if S[mid] == x :
-            location = mid
-            break
-        elif S[mid] > x :
-            high = mid - 1
+            return mid
         elif S[mid] < x :
             low = mid + 1
-        
-    return location
+        else :
+            high = mid - 1
+    return -1
