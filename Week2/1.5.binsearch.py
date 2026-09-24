@@ -6,7 +6,7 @@ def binsearch(n: int, S: List[int], x: int) -> int:
     low = 0
     high = n-1
 
-    while low < high :
+    while low <= high :
         mid = (low + high) // 2
         if S[mid] == x :
             return mid
