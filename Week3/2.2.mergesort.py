@@ -5,11 +5,11 @@ def merge(h: int, m: int, U: List[int], V: List[int], S: List[int]) :
     assert sorted(V) == V
 
     i = j = k = 0
-    while i < h or j < m :
-        if U[i] < V[j] :
+    while i < h and j < m :
+        if U[i] <= V[j] :
             S[k] = U[i]
             i += 1
-        elif V[j] < U[i] :
+        elif V[j] <= U[i] :
             S[k] = V[j]
             j += 1
         k += 1
@@ -21,10 +21,10 @@ def merge(h: int, m: int, U: List[int], V: List[int], S: List[int]) :
 def mergesort(n: int, S: List[int]) :
     h = n // 2
     m = n - h
-    U = S[:h]
-    V = S[h+1:]
 
     if n > 1 :
+        U = S[:h]
+        V = S[h:]
         mergesort(h, U)
         mergesort(m, V)
         merge(h, m, U, V, S)
