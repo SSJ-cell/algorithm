@@ -2,6 +2,7 @@ from typing import List
 
 def arrsum(n: int, S: List[int]) -> int :
     sum = 0
-    for i in range(n) :
-        sum += S[i]
+    if n > 0 :
+        for i in range(n) :
+            sum += S[i]
     return sum
