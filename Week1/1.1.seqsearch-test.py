@@ -1,4 +1,4 @@
-import sys
+import os
 import importlib.util
 
 # 동적으로 import
@@ -19,7 +19,10 @@ test_cases = [
     {"S": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], "x": 11, "expected": -1, "desc": "배열에 없는 값 찾기"}
 ]
 
-def run_test_cases(file_path = "1.1.seqsearch.py"):
+def run_test_cases(file_path=None):
+    if file_path is None:
+        file_path = os.path.join(os.path.dirname(__file__), "1.1.seqsearch.py")
+
     spec = importlib.util.spec_from_file_location(module_name, file_path)
     seqsearch_module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(seqsearch_module)
